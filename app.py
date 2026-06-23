@@ -5,24 +5,17 @@ from src.utils import load_model_weights, predict
 loaded_models = {}
 
 
-def load_selected_model(model_name):
-    if model_name not in loaded_models:
-        loaded_models[model_name] = load_model_weights(model_name)
-    return loaded_models[model_name]
-
-
 def classify(image, model_name):
     if image is None:
-        return "Please upload an image.", None
+        return "Please upload an image.", {}
     try:
-        model = load_selected_model(model_name)
+        model = load_model_weights(model_name)
         result = predict(model, image)
-        probs = result["probabilities"]
-        bar_chart = {k: float(v) for k, v in probs.items()}
         label = f"{result['class'].upper()} ({result['confidence']:.1%})"
-        return label, bar_chart
+        probs = {k: float(v) for k, v in result["probabilities"].items()}
+        return label, probs
     except Exception as e:
-        return f"Error: {str(e)}", None
+        return f"Error: {str(e)}", {}
 
 
 demo = gr.Interface(
@@ -37,13 +30,10 @@ demo = gr.Interface(
     ],
     outputs=[
         gr.Textbox(label="Prediction"),
-        gr.BarPlot(x="key", y="value", label="Confidence", x_label="Class", y_label="Probability"),
+        gr.Label(label="Confidence"),
     ],
     title="Cat vs Dog Classifier",
     description="Classify images of cats and dogs using different trained models.",
-    examples=[
-        ["research/sample_cat.jpg", "Transfer Learning (Layer4 + FC)"],
-    ],
     theme=gr.themes.Soft(),
 )
 
