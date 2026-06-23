@@ -14,7 +14,7 @@ license: mit
 
 A PyTorch image classifier that distinguishes cats from dogs, trained on the [Kaggle Cat and Dog dataset](https://www.kaggle.com/datasets/tongpython/cat-and-dog).
 
-**[Live Demo](https://huggingface.co/spaces/AyushDocs/cat-dog-classifier)**
+**[Live Demo](https://huggingface.co/spaces/24f2004275/cat-dog-classifier)**
 
 ## Models
 
@@ -74,4 +74,4 @@ See the notebook in `research/01_AyushDocs_Classifier.ipynb` for full training c
 
 ## Model Files
 
-Model weights are hosted on HuggingFace Hub: [`AyushDocs/cat-dog-classifier`](https://huggingface.co/AyushDocs/cat-dog-classifier)
+Model weights are hosted on HuggingFace Hub: [`24f2004275/cat-dog-classifier`](https://huggingface.co/24f2004275/cat-dog-classifier)

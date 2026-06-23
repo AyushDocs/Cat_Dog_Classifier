@@ -9,7 +9,7 @@ STD = [0.5, 0.5, 0.5]
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-HF_MODEL_REPO = "AyushDocs/cat-dog-classifier"
+HF_MODEL_REPO = "24f2004275/cat-dog-classifier"
 
 MODEL_MAP = {
     "MLP Classifier": "mlp_classifier.pth",
