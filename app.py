@@ -34,6 +34,10 @@ demo = gr.Interface(
     ],
     title="Cat vs Dog Classifier",
     description="Classify images of cats and dogs using different trained models.",
+    examples=[
+        ["examples/cat.jpg", "Transfer Learning (Layer4 + FC)"],
+        ["examples/dog.jpg", "Transfer Learning (Layer4 + FC)"],
+    ],
     theme=gr.themes.Soft(),
 )
 
